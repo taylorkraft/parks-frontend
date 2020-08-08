@@ -1,5 +1,7 @@
 class State {
 
+  static all = []
+  
   constructor(id, name, flower) {
     this.id = id
     this.name = name
@@ -22,5 +24,13 @@ class State {
     <p>State: <span>${this.name}</span></p>
     <p>Flower: <span>${this.flower}</span><p>
     `
+  }
+
+  parksArray() {
+    return Park.all.filter(park => park.stateId == this.id)
+  }
+
+  renderParks() {
+    this.parks.innerHTML = this.parksArray()
   }
 }
