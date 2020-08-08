@@ -1,8 +1,8 @@
 class State {
 
   static all = []
-  
-  constructor(id, name, flower) {
+
+  constructor({id, name, flower}) {
     this.id = id
     this.name = name
     this.flower = flower
@@ -14,8 +14,14 @@ class State {
     this.parks = document.createElement('div')
     this.parks.id = `state=${this.id}-parks`
     this.edit = document.createElement('button')
-    this.edit.innerText = "Edit State Info"
+    this.edit.innerText = "Edit State"
     this.main.append(this.info, this.parks, this.edit)
+
+    this.form = document.createElement('form')
+
+    this.edit.addEventListener('click', this.renderEditStateForm)
+
+    State.all.push(this)
   }
 
   renderInfo() {
