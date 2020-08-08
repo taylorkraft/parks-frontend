@@ -55,6 +55,16 @@ class State {
     `
   }
 
+  submitEditStateForm = (e) => {
+    e.preventDefault()
+    this.form.querySelectorAll('input').forEach(function(input){
+      input.name !== "submit" && (this[`${input.name}`] = input.value)
+    }, this)
+    this.edit.disabled = false
+    this.renderInfo()
+    StateAdapter.editState(this)
+  }
+
   static renderStates() {
     State.all.forEach((state) => {
       state.renderInfo()
