@@ -10,7 +10,8 @@ class ParkAdapter {
     .then(function(allParks) {
       return allParks.forEach(function(park) {
         return new Park(park)
-        //create new park instance for each park in allParks array
+        //iterate over array of parks
+        //create new js instance/obj of park
       })
     })
   }
