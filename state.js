@@ -20,6 +20,9 @@ class State {
 
     this.form = document.createElement('form')
 
+    this.edit.addEventListener('click', this.renderEditStateForm)
+    this.form.addEventListener('submit', this.submitEditStateForm)
+
     State.all.push(this)
   }
 
