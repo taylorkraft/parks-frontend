@@ -42,6 +42,7 @@ class State {
     this.parks.innerHTML = this.allParks().map(park => park.renderLI()).join("")
   }
 
+  //arrow function because it is used as callback - binds keyword this without having to manually bind
   renderEditStateForm = () => {
     this.edit.disabled = true
     this.info.innerHTML = ''
