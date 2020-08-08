@@ -10,4 +10,8 @@ class Park {
 
     Park.all.push(this)
   }
+
+  renderLI() {
+    return `<li>${this.name} - ${this.location}</li>`
+  }
 }

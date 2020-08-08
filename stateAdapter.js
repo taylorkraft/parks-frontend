@@ -15,7 +15,7 @@ class StateAdapter {
       })
     })
   }
-
+  //destructure attributes rather than passing in state instance
   static editState({id, name, flower}) {
     return fetch(`${StateAdapter.baseURL}/${id}`, {
       method: "PUT",
@@ -27,6 +27,7 @@ class StateAdapter {
         state: {
           name,
           flower
+          //destructuring - key of obj has a variable with same name
         }
       })
     })

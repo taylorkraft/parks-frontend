@@ -39,12 +39,11 @@ class State {
   }
 
   renderParks() {
-    this.parks.innerHTML = this.parksArray()
+    this.parks.innerHTML = this.parksArray().map(park => park.renderLI()).join("")
   }
 
   renderEditStateForm = () => {
     this.edit.disabled = true
-    console.log(this);
     this.info.innerHTML = ''
     this.info.appendChild(this.form)
     this.form.innerHTML = `
