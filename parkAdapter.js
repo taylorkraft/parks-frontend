@@ -8,8 +8,8 @@ class ParkAdapter {
     .then(resp => resp.json())
     //jsonify backend obj response
     .then(function(allParks) {
-      return allParks.forEach(function(park) {
-        return new Park(park)
+     allParks.forEach(function(park) {
+        new Park(park)
         //iterate over array of parks
         //create new js instance/obj of park
       })

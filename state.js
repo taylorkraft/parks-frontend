@@ -34,12 +34,12 @@ class State {
     `
   }
 
-  parksArray() {
+  allParks() {
     return Park.all.filter(park => park.stateId == this.id)
   }
 
   renderParks() {
-    this.parks.innerHTML = this.parksArray().map(park => park.renderLI()).join("")
+    this.parks.innerHTML = this.allParks().map(park => park.renderLI()).join("")
   }
 
   renderEditStateForm = () => {
