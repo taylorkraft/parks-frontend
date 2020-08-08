@@ -12,6 +12,6 @@ class Park {
   }
 
   renderLI() {
-    return `<li>${this.name - this.location}</li>`
+    return `<li>${this.name} - ${this.location}</li>`
   }
 }
