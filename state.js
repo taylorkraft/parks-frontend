@@ -16,16 +16,11 @@ class State {
     this.main.append(this.info, this.parks, this.edit)
   }
 
-  
-  // renderState() {
-  //   let statesDiv = document.getElementById("states-container")
-
-  //   statesDiv.innerHTML +=
-  //   `
-      
-  //       <label>Name: </label><h4>${this.name}</h4>
-  //       <label>State Flower: </label><h4>${this.flower}</h4>
-      
-  //   `
-  // }
+  renderInfo() {
+    this.info.innerHTML = 
+    `
+    <p>State: <span>${this.name}</span></p>
+    <p>Flower: <span>${this.flower}</span><p>
+    `
+  }
 }
