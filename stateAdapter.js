@@ -15,4 +15,20 @@ class StateAdapter {
       })
     })
   }
+
+  static editState({id, name, flower}) {
+    return fetch(`${StateAdapter.baseURL}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "appliction/json"
+      },
+      body: JSON.stringify({
+        state: {
+          name,
+          flower
+        }
+      })
+    })
+  }
 }
