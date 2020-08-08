@@ -3,7 +3,7 @@ class ParkAdapter {
   static baseURL = "http://127.0.0.1:3000/parks"
 
   static fetchAndCreateParks() {
-    return fetch(ParkAdaper.baseURL)
+    return fetch(ParkAdapter.baseURL)
     //fetch all parks
     .then(resp => resp.json())
     //jsonify backend obj response

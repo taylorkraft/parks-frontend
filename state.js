@@ -39,6 +39,22 @@ class State {
     this.parks.innerHTML = this.parksArray()
   }
 
+  renderEditStateForm = () => {
+    this.edit.disabled = true
+    console.log(this);
+    this.info.innerHTML = ''
+    this.info.appendChild(this.form)
+    this.form.innerHTML = `
+      <label>Name:</label>
+      <input type="text" name="name" value="${this.name}">
+      <br/>
+      <label>Flower:</label>
+      <input type="text" name="flower" value="${this.flower}">
+      <br/>
+      <input id="edit-state" type="submit" value="Submit">
+    `
+  }
+
   static renderStates() {
     State.all.forEach((state) => {
       state.renderInfo()

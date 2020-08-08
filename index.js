@@ -1,4 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
-  stateAdapter.fetchAndCreateStates()
-  }
-)
+ParkAdapter.fetchAndCreateParks()
+  .then(StateAdapter.fetchAndCreateStates)
+  .then(State.renderStates)
