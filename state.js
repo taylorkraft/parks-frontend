@@ -1,6 +1,7 @@
 class State {
 
   static all = []
+  static stateContainer = document.getElementById('state-container')
 
   constructor({id, name, flower}) {
     this.id = id
@@ -19,8 +20,6 @@ class State {
 
     this.form = document.createElement('form')
 
-    this.edit.addEventListener('click', this.renderEditStateForm)
-
     State.all.push(this)
   }
 
@@ -38,5 +37,13 @@ class State {
 
   renderParks() {
     this.parks.innerHTML = this.parksArray()
+  }
+
+  static renderStates() {
+    State.all.forEach((state) => {
+      state.renderInfo()
+      state.renderParks()
+      State.stateContainer.appendChild(state.main)
+    })
   }
 }
