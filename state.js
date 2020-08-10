@@ -22,7 +22,7 @@ class State {
 
     this.edit.addEventListener('click', this.renderEditStateForm)
     this.form.addEventListener('submit', this.submitEditStateForm)
-
+    // this.renderInfo()
     State.all.push(this)
   }
 
@@ -63,7 +63,6 @@ class State {
     this.form.querySelectorAll('input').forEach(function(input){
       input.name !== "submit" && (this[`${input.name}`] = input.value)
     }, this)
-    this.edit.disabled = false
     this.renderInfo()
     StateAdapter.editState(this)
   }
@@ -73,6 +72,22 @@ class State {
       state.renderInfo()
       state.renderParks()
       State.stateContainer.appendChild(state.main)
+    })
+  }
+
+  static submitCreateStateForm = (e) => {
+    e.preventDefault()
+    const formValues = {}
+    const stateForm = document.getElementById('state-form')
+    stateForm.querySelectorAll('input').forEach(function(input){
+      input.name !== "submit" && (formValues[`${input.name}`] = input.value)
+    })
+    StateAdapter.createState(formValues)
+    .then(state => {
+      const list = document.getElementById('state-container')
+      state.renderInfo()
+      list.appendChild(state.main)
+      // state.main.focus()
     })
   }
 }

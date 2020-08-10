@@ -32,4 +32,25 @@ class StateAdapter {
       })
     })
   }
+
+  static createState({name, flower}) {
+    return fetch(`${StateAdapter.baseURL}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "appliction/json"
+      },
+      body: JSON.stringify({
+        state: {
+          name,
+          flower
+          //destructuring - key of obj has a variable with same name
+        }
+      })
+    })
+    .then(resp => resp.json())
+    .then(state => {
+      return new State(state)
+    })
+  }
 }
