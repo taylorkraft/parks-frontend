@@ -3,10 +3,11 @@ class State {
   static all = []
   static stateContainer = document.getElementById('state-container')
 
-  constructor({id, name, flower}) {
+  constructor({id, name, flower, parks}) {
     this.id = id
     this.name = name
     this.flower = flower
+    this.parks = parks
 
     this.main = document.createElement('div')
     this.main.id = `state-${this.id}`
@@ -80,7 +81,7 @@ class State {
     })
   }
 
-  
+
   static submitCreateStateForm = (e) => {
     e.preventDefault()
     const formValues = {}
