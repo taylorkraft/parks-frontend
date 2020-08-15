@@ -42,6 +42,16 @@ class State {
   renderParks() {
     this.parks.innerHTML = this.allParks().map(park => park.renderLI()).join("")
     //renderLI from park.js - sets inner html of li
+    const selectState = document.querySelector('#state')
+
+    selectState.innerHTML = ''
+
+    State.all.forEach(function(s) {
+      selectState.innerHTML += 
+      `
+      <option value=${s.id}>${s.name}</option>
+      `
+    })
   }
 
   //arrow function because it is used as callback - binds keyword this without having to manually bind
