@@ -15,4 +15,24 @@ class ParkAdapter {
       })
     })
   }
+
+  static createPark({name, location}) {
+    return fetch(`${ParkAdapter.baseURL}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "appliction/json"
+      },
+      body: JSON.stringify({
+        state: {
+          name,
+          location
+          //destructuring - key of obj has a variable with same name
+        }
+      })
+    })
+    .then(resp => resp.json())
+    .then(park => {
+      return new Park(park)
+    })
 }

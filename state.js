@@ -22,7 +22,7 @@ class State {
 
     this.edit.addEventListener('click', this.renderEditStateForm)
     this.form.addEventListener('submit', this.submitEditStateForm)
-    // this.renderInfo()
+    
     State.all.push(this)
   }
 
@@ -40,11 +40,13 @@ class State {
 
   renderParks() {
     this.parks.innerHTML = this.allParks().map(park => park.renderLI()).join("")
+    //renderLI from park.js - sets inner html of li
   }
 
   //arrow function because it is used as callback - binds keyword this without having to manually bind
   renderEditStateForm = () => {
     this.edit.disabled = true
+    //allows the button to be clicked (enabled)
     this.info.innerHTML = ''
     this.info.appendChild(this.form)
     this.form.innerHTML = `
@@ -58,15 +60,18 @@ class State {
     `
   }
 
+  //not static - references a state instance, not entire class
   submitEditStateForm = (e) => {
     e.preventDefault()
     this.form.querySelectorAll('input').forEach(function(input){
       input.name !== "submit" && (this[`${input.name}`] = input.value)
     }, this)
     this.renderInfo()
+    //sets inner html input
     StateAdapter.editState(this)
   }
 
+  //we want to render all states in our states array to user
   static renderStates() {
     State.all.forEach((state) => {
       state.renderInfo()
@@ -75,6 +80,7 @@ class State {
     })
   }
 
+  
   static submitCreateStateForm = (e) => {
     e.preventDefault()
     const formValues = {}
