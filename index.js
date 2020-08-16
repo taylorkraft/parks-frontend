@@ -4,3 +4,6 @@ ParkAdapter.fetchAndCreateParks()
   
   document.getElementById('state-form')
   .addEventListener('submit', State.submitCreateStateForm)
+
+  // document.getElementById('park-form')
+  // .addEventListener('submit', Park.submitCreateParkForm)

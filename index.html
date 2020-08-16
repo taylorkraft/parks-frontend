@@ -3,45 +3,47 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Parks</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  <h1>PARKS</h1>
-  <div id="state-form-container">
-    <p>Add A State:</p>
-    <form id="state-form">
-      <label>Name:</label>
-      <input type="text" name="name" value="">
-      <br/>
-      <label>State Flower:</label>
-      <input type="text" name="flower" value="">
-      <br/>
-      <input type="submit" value="Create State">
-    </form>
-    <p>----------------------------------</p>
-  </div>
-  <div id="parks-form-container">
-    <p>Add A Park:</p>
-    <form id="parks-form">
-      <label>Name:</label>
-      <input type="text" name="name" value="">
-      <br/>
-      <label>Location:</label>
-      <input type="text" name="location" value="">
-      <br/>
-      <label>Select State:</label>
-      <select name="state" id="state"></select>
-      <input type="submit" value="Add Park">
-    </form>
-    <p>----------------------------------</p>
-  </div>
+  <header>
+    <h1>NATIONAL PARKS</h1>
+  </header>
+    <main>
+      <div id="state-form-container">
+        <h2>ADD A STATE:</h2>
+        <form id="state-form">
+          <label>Name:</label>
+            <input type="text" name="name" value="">
+          <label>State Flower:</label>
+            <input type="text" name="flower" value="">
+            <input type="submit" value="Add State">
+        </form>
+      </div>
+    <div id="park-form-container">
+      <h2>ADD A PARK:</h2>
+      <form id="park-form">
+        <label>Name:</label>
+          <input type="text" name="name" value="">
+        <label>Location:</label>
+          <input type="text" name="location" value="">
+        <label>Select State:</label>
+          <select name="state" id="state"></select>
+          <input type="submit" value="Add Park">
+      </form>
+    </div>
   <div id="state-container">
 
   </div>
 
+  <div id="park-container">
+
+  </div>
+    </main>
 </body>
-<script type="text/javascript" src="parkAdapter.js"></script>
-<script type="text/javascript" src="stateAdapter.js"></script>
-<script type="text/javascript" src="state.js"></script>
-<script type="text/javascript" src="park.js"></script>
-<script type="text/javascript" src="index.js"></script>
+  <script type="text/javascript" src="parkAdapter.js"></script>
+  <script type="text/javascript" src="stateAdapter.js"></script>
+  <script type="text/javascript" src="state.js"></script>
+  <script type="text/javascript" src="park.js"></script>
+  <script type="text/javascript" src="index.js"></script>
 </html>

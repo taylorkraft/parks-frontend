@@ -1,0 +1,66 @@
+* {
+  font-family: 'Optima, sans-serif';
+}
+
+body {
+  font-weight: 200;
+  line-height: 1em;
+  font-size: 1em;
+  margin: 5;
+  padding: 5;
+}
+
+header {
+  background-color: #3b8628;
+  margin: 0 auto;
+  height: 30px;
+}
+
+header h1 {
+  color: white;
+  font-size: 1.5em;
+  text-align: center;
+  text-shadow: 1px 1px rgb(3, 3, 3);
+  padding: 10px;
+  margin: 0;
+}
+
+h2 {
+  color: #3b8628;
+  font-size: 1.5em;
+  text-align: center;
+  text-shadow: 1px 1px rgb(3, 3, 3);
+  padding: 10px;
+  margin: 0;
+  font-weight: bold 
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-gap: 10px;
+  padding: 20px;
+}
+
+#state-form-container {
+  text-align: center;
+}
+
+#park-form-container {
+  text-align: center;
+}
+
+#state-container {
+  text-align: center;
+  color: black;
+  font-weight: 200;
+  line-height: 1.2em;
+  font-size: 1em;
+  margin: 5;
+  padding: 5;
+}
+
+#park-container {
+  text-align: center;
+}
