@@ -43,6 +43,21 @@ main {
   padding: 20px;
 }
 
+li {
+  color: #3b8628;
+  font-size: 1em;
+  text-align: center;
+  margin: 0;
+  font-weight: normal 
+}
+
+p {
+  color: black;
+  font-size: 1.1em;
+  text-align: center;
+  font-weight: bold 
+}
+
 #state-form-container {
   text-align: center;
 }

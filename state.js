@@ -3,10 +3,9 @@ class State {
   static all = []
   static stateContainer = document.getElementById('state-container')
 
-  constructor({id, name, flower, parks}) {
+  constructor({id, name, parks}) {
     this.id = id
     this.name = name
-    this.flower = flower
     this.parks = parks
 
     this.main = document.createElement('div')
@@ -31,7 +30,6 @@ class State {
     this.info.innerHTML = 
     `
     <p>State: <span>${this.name}</span></p>
-    <p>Flower: <span>${this.flower}</span><p>
     `
   }
 
@@ -63,9 +61,6 @@ class State {
     this.form.innerHTML = `
       <label>Name:</label>
       <input type="text" name="name" value="${this.name}">
-      <br/>
-      <label>Flower:</label>
-      <input type="text" name="flower" value="${this.flower}">
       <br/>
       <input id="edit-state" type="submit" value="Submit">
     `
