@@ -2,6 +2,7 @@ class ParkAdapter {
 
   static baseURL = "http://127.0.0.1:3000/parks"
 
+  //using static is the same as writing ParkAdapter.fetchAndCreateParks()
   static fetchAndCreateParks() {
     return fetch(ParkAdapter.baseURL)
     //fetch all parks
@@ -16,24 +17,28 @@ class ParkAdapter {
     })
   }
 
-  static createPark({name, location}) {
+  static createPark(name, location, stateId) {
     return fetch(`${ParkAdapter.baseURL}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Accept: "appliction/json"
+        "Accept": "appliction/json"
       },
       body: JSON.stringify({
-        state: {
-          name,
-          location
+        park: {
+          name: name,
+          location: location,
+          state_id: stateId
           //destructuring - key of obj has a variable with same name
         }
       })
     })
     .then(resp => resp.json())
     .then(park => {
-      return new Park(park)
+      let parkContainer = document.querySelector('#state-container').querySelector(`#state-${stateId}-parks`)
+      let parkLI = document.createElement('li')
+      parkLI.innerHTML = `NP: ${park.name} - Location: ${park.location}`
+      parkContainer.appendChild(parkLI)
     })
   }
 
@@ -45,7 +50,7 @@ class ParkAdapter {
         Accept: "appliction/json"
       },
       body: JSON.stringify({
-        state: {
+        park: {
           name,
           location
           //destructuring - key of obj has a variable with same name

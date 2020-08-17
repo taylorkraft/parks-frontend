@@ -13,7 +13,7 @@ class State {
     this.info = document.createElement('div')
     this.info.id = `state-${this.id}-info`
     this.parks = document.createElement('div')
-    this.parks.id = `state=${this.id}-parks`
+    this.parks.id = `state-${this.id}-parks`
     this.edit = document.createElement('button')
     this.edit.innerText = "Edit State"
     this.main.append(this.info, this.parks, this.edit)
@@ -40,16 +40,18 @@ class State {
   renderParks() {
     this.parks.innerHTML = this.allParks().map(park => park.renderLI()).join("")
     //renderLI from park.js - sets inner html of li
+    // # selects element id
     const selectState = document.querySelector('#state')
 
     selectState.innerHTML = ''
 
-    State.all.forEach(function(s) {
+    State.all.forEach(function(state) {
       selectState.innerHTML += 
       `
-      <option value=${s.id}>${s.name}</option>
+      <option value=${state.id}>${state.name}</option>
       `
     })
+    //option tag defines an element in a selection list
   }
 
   //arrow function because it is used as callback - binds keyword this without having to manually bind

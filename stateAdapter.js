@@ -16,7 +16,7 @@ class StateAdapter {
     })
   }
   //destructure attributes rather than passing in state instance
-  static editState({id, name, flower}) {
+  static editState({id, name}) {
     return fetch(`${StateAdapter.baseURL}/${id}`, {
       method: "PUT",
       headers: {
@@ -25,15 +25,14 @@ class StateAdapter {
       },
       body: JSON.stringify({
         state: {
-          name,
-          flower
+          name
           //destructuring - key of obj has a variable with same name
         }
       })
     })
   }
 
-  static createState({name, flower}) {
+  static createState({name}) {
     return fetch(`${StateAdapter.baseURL}`, {
       method: "POST",
       headers: {
@@ -42,8 +41,7 @@ class StateAdapter {
       },
       body: JSON.stringify({
         state: {
-          name,
-          flower
+          name
           //destructuring - key of obj has a variable with same name
         }
       })

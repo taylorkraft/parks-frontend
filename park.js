@@ -8,6 +8,9 @@ class Park {
     this.location = location
     this.stateId = state_id
 
+    this.main = document.createElement('div')
+    this.main.id = `park-${this.id}`
+
     Park.all.push(this)
   }
 
@@ -15,7 +18,7 @@ class Park {
     return `<li>NP: ${this.name} - Location: ${this.location}</li>`
   }
 
-  // static submitCreateStateForm = (e) => {
+  // static submitCreateParkForm = (e) => {
   //   e.preventDefault()
   //   const formValues = {}
   //   const parkForm = document.getElementById('park-form')
@@ -25,9 +28,16 @@ class Park {
   //   ParkAdapter.createPark(formValues)
   //   .then(park => {
   //     const list = document.getElementById('park-container')
-  //     park.renderInfo()
+  //     park.renderLI()
   //     list.appendChild(park.main)
   //     // state.main.focus()
   //   })
   // }
+  static submitCreateParkForm = (e) => {
+    e.preventDefault()
+    const stateId = e.target.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.value
+    const parkName = e.target.firstElementChild.nextElementSibling.value 
+    const parkLocation = e.target.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.value 
+    ParkAdapter.createPark(parkName, parkLocation, stateId)
+  }
 }
