@@ -48,7 +48,7 @@ class State {
     State.all.forEach(function(state) {
       selectState.innerHTML += 
       `
-      <option value=${state.id}>${state.name}</option>
+      <option id=${state.id}-option value=${state.id}>${state.name}</option>
       `
     })
     //option tag defines an element in a selection list
@@ -74,6 +74,7 @@ class State {
     this.form.querySelectorAll('input').forEach(function(input){
       input.name !== "submit" && (this[`${input.name}`] = input.value)
     }, this)
+    this.edit.disabled = false 
     this.renderInfo()
     //sets inner html input
     StateAdapter.editState(this)
@@ -99,8 +100,15 @@ class State {
     StateAdapter.createState(formValues)
     .then(state => {
       const list = document.getElementById('state-container')
+      let addNewStateToList = document.querySelector('#state')
+      let newStateOption = document.createElement('option')
+      newStateOption.value = state.name
+      newStateOption.id = `${state.id}-option`
+      newStateOption.innerText = state.name
+      addNewStateToList.add(newStateOption)
       state.renderInfo()
       list.appendChild(state.main)
+      stateForm.reset()
       // state.main.focus()
     })
   }
