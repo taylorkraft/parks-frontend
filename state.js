@@ -71,13 +71,15 @@ class State {
   //not static - references a state instance, not entire class
   submitEditStateForm = (e) => {
     e.preventDefault()
-    this.form.querySelectorAll('input').forEach(function(input){
-      input.name !== "submit" && (this[`${input.name}`] = input.value)
-    }, this)
+    const stateName = this.form.querySelector('input').value
+    this.name = stateName
+    // this.form.querySelectorAll('input').forEach(function(input){
+    //   input.name !== "submit" && (this[`${input.name}`] = input.value)
+    // }, this)
     this.edit.disabled = false 
     this.renderInfo()
     //sets inner html input
-    StateAdapter.editState(this)
+    StateAdapter.editState(this.id, this.name)
   }
 
   //we want to render all states in our states array to user
@@ -94,15 +96,17 @@ class State {
     e.preventDefault()
     const formValues = {}
     const stateForm = document.getElementById('state-form')
-    stateForm.querySelectorAll('input').forEach(function(input){
-      input.name !== "submit" && (formValues[`${input.name}`] = input.value)
-    })
+    const stateName = stateForm.querySelector('input').value
+    formValues.name = stateName
+    // stateForm.querySelectorAll('input').forEach(function(input){
+    //   input.name !== "submit" && (formValues[`${input.name}`] = input.value)
+    // })
     StateAdapter.createState(formValues)
     .then(state => {
       const list = document.getElementById('state-container')
       let addNewStateToList = document.querySelector('#state')
       let newStateOption = document.createElement('option')
-      newStateOption.value = state.name
+      newStateOption.value = state.id
       newStateOption.id = `${state.id}-option`
       newStateOption.innerText = state.name
       addNewStateToList.add(newStateOption)

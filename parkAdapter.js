@@ -29,7 +29,6 @@ class ParkAdapter {
           name: name,
           location: location,
           state_id: stateId
-          //destructuring - key of obj has a variable with same name
         }
       })
     })
@@ -42,20 +41,20 @@ class ParkAdapter {
     })
   }
 
-  static editPark({id, name, location}) {
-    return fetch(`${ParkAdapter.baseURL}/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "appliction/json"
-      },
-      body: JSON.stringify({
-        park: {
-          name,
-          location
-          //destructuring - key of obj has a variable with same name
-        }
-      })
-    })
-  }
+  // static editPark(id, name, location) {
+  //   return fetch(`${ParkAdapter.baseURL}/${id}`, {
+  //     method: "PUT",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Accept: "appliction/json"
+  //     },
+  //     body: JSON.stringify({
+  //       park: {
+  //         name,
+  //         location
+  //         //destructuring - key of obj has a variable with same name
+  //       }
+  //     })
+  //   })
+  // }
 }
