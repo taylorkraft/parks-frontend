@@ -26,8 +26,8 @@ class ParkAdapter {
       },
       body: JSON.stringify({
         park: {
-          name: name,
-          location: location,
+          name,
+          location,
           state_id: stateId
         }
       })
@@ -52,7 +52,6 @@ class ParkAdapter {
   //       park: {
   //         name,
   //         location
-  //         //destructuring - key of obj has a variable with same name
   //       }
   //     })
   //   })

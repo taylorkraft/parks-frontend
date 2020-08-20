@@ -40,7 +40,6 @@ class State {
   renderParks() {
     this.parks.innerHTML = this.allParks().map(park => park.renderLI()).join("")
     //renderLI from park.js - sets inner html of li
-    // # selects element id
     const selectState = document.querySelector('#state')
 
     selectState.innerHTML = ''
@@ -54,12 +53,13 @@ class State {
     //option tag defines an element in a selection list
   }
 
-  //arrow function because it is used as callback - binds keyword this without having to manually bind
+  //arrow function because it is used as callback
   renderEditStateForm = () => {
     this.edit.disabled = true
     //allows the button to be clicked (enabled)
     this.info.innerHTML = ''
     this.info.appendChild(this.form)
+    //info is empty before appending form
     this.form.innerHTML = `
       <label>Name:</label>
       <input type="text" name="name" value="${this.name}">
@@ -72,13 +72,11 @@ class State {
   submitEditStateForm = (e) => {
     e.preventDefault()
     const stateName = this.form.querySelector('input').value
+    //selects first input, that's why this works
     this.name = stateName
-    // this.form.querySelectorAll('input').forEach(function(input){
-    //   input.name !== "submit" && (this[`${input.name}`] = input.value)
-    // }, this)
-    this.edit.disabled = false 
+    this.edit.disabled = false
     this.renderInfo()
-    //sets inner html input
+    //renders name after edit
     StateAdapter.editState(this.id, this.name)
   }
 
@@ -88,6 +86,7 @@ class State {
       state.renderInfo()
       state.renderParks()
       State.stateContainer.appendChild(state.main)
+      //appends state instance to main div of state-container
     })
   }
 
@@ -95,25 +94,24 @@ class State {
   static submitCreateStateForm = (e) => {
     e.preventDefault()
     const formValues = {}
+    //formValues is empty, we populate it below
     const stateForm = document.getElementById('state-form')
     const stateName = stateForm.querySelector('input').value
     formValues.name = stateName
-    // stateForm.querySelectorAll('input').forEach(function(input){
-    //   input.name !== "submit" && (formValues[`${input.name}`] = input.value)
-    // })
     StateAdapter.createState(formValues)
     .then(state => {
       const list = document.getElementById('state-container')
       let addNewStateToList = document.querySelector('#state')
       let newStateOption = document.createElement('option')
+      //option tag has a value, we set it here to equal the state's id
       newStateOption.value = state.id
       newStateOption.id = `${state.id}-option`
       newStateOption.innerText = state.name
+      //user views name text in drop down, we don't want to display the id
       addNewStateToList.add(newStateOption)
       state.renderInfo()
       list.appendChild(state.main)
       stateForm.reset()
-      // state.main.focus()
     })
   }
 }

@@ -15,7 +15,7 @@ class StateAdapter {
       })
     })
   }
-  //destructure attributes rather than passing in state instance
+  
   static editState(id, name) {
     let getStateOption = document.getElementById(`${id}-option`)
     getStateOption.innerText = name
