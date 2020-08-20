@@ -82,7 +82,7 @@ class State {
 
   //we want to render all states in our states array to user
   static renderStates() {
-    State.all.forEach((state) => {
+    State.all.forEach(state => {
       state.renderInfo()
       state.renderParks()
       State.stateContainer.appendChild(state.main)
@@ -90,6 +90,24 @@ class State {
     })
   }
 
+  static renderSortedStates() {
+    let stateContainer = document.getElementById('state-container')
+    stateContainer.innerHTML = ''
+    State.all.sort((a,b) => {
+      if (a.name < b.name) {
+        return -1
+      }
+      if (a.name > b.name) {
+        return 1
+      }
+      else {
+        return 0
+      }}).forEach(state => {
+        state.renderInfo()
+        state.renderParks()
+        State.stateContainer.appendChild(state.main)
+      }) 
+  }
 
   static submitCreateStateForm = (e) => {
     e.preventDefault()

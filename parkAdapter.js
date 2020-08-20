@@ -38,6 +38,7 @@ class ParkAdapter {
       let parkLI = document.createElement('li')
       parkLI.innerHTML = `NP: ${park.name} - Location: ${park.location}`
       parkContainer.appendChild(parkLI)
+      //append new park to the DOM
     })
   }
 

@@ -7,8 +7,8 @@ class StateAdapter {
     //fetch all states
     .then((resp) => resp.json())
     //jsonify backend obj response
-    .then(function(stateArray) {
-      stateArray.forEach(function(state) {
+    .then(stateArray => {
+      stateArray.forEach(state => {
         new State(state)
         //iterate over array of states
         //create new js instance/obj of state
